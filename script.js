@@ -11,12 +11,13 @@ function getComputerChoice() {
 }
 
 
-function playARound(playerSelection, computerSelection) {
-    if (playerSelection == computerSelection) {
+function playRound(playerSelection, computerSelection) {
+    let lowerPlayerSelection = playerSelection.toLowerCase();
+    if (lowerPlayerSelection == computerSelection) {
         return "a draw";
     }
-    else if ((playerSelection == ROCK && computerSelection == PAPER) || (playerSelection == PAPER && computerSelection == SCISSORS) ||
-    (playerSelection == SCISSORS && computerSelection == ROCK)) {
+    else if ((lowerPlayerSelection == ROCK && computerSelection == PAPER) || (lowerPlayerSelection == PAPER && computerSelection == SCISSORS) ||
+    (lowerPlayerSelection == SCISSORS && computerSelection == ROCK)) {
         return "you loose";
     }
     else {
