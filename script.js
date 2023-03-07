@@ -11,16 +11,30 @@ function getComputerChoice() {
 }
 
 
+function lowercaseInput(userInput) {
+    return userInput.toLowerCase()
+}
+
 function playRound(playerSelection, computerSelection) {
-    let lowerPlayerSelection = playerSelection.toLowerCase();
-    if (lowerPlayerSelection == computerSelection) {
-        return "a draw";
+    if (playerSelection == computerSelection) {
+        return "A draw.";
     }
-    else if ((lowerPlayerSelection == ROCK && computerSelection == PAPER) || (lowerPlayerSelection == PAPER && computerSelection == SCISSORS) ||
-    (lowerPlayerSelection == SCISSORS && computerSelection == ROCK)) {
-        return "you loose";
+    else if ((playerSelection == ROCK && computerSelection == PAPER) || (playerSelection == PAPER && computerSelection == SCISSORS) ||
+    (playerSelection == SCISSORS && computerSelection == ROCK)) {
+        return "You loose!";
     }
     else {
-        return "you win";
+        return "You win!";
     }
 }
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let userInput = lowercaseInput(prompt());
+        let computerChoice = getComputerChoice();
+        console.log("The computers choice is " + computerChoice);
+        console.log(playRound(userInput, computerChoice));        
+    }
+}
+
+game();
