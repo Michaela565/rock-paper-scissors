@@ -3,11 +3,16 @@ const ROCK = "rock"
 const PAPER = "paper"
 const SCISSORS = "scissors"
 
-const Options = [ROCK, PAPER, SCISSORS];
+const OPTIONS = [ROCK, PAPER, SCISSORS];
+const OUTCOMES = ["You loose!", "You win!", "A draw."]
+
+let computerScore = 0;
+let playerScore = 0;
+let numberOfDraws = 0;
 
 function getComputerChoice() {
     let randomChoice = Math.floor(Math.random() * 3);
-    return Options[randomChoice];
+    return OPTIONS[randomChoice];
 }
 
 
@@ -17,14 +22,30 @@ function lowercaseInput(userInput) {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
-        return "A draw.";
+        return 2;
     }
     else if ((playerSelection == ROCK && computerSelection == PAPER) || (playerSelection == PAPER && computerSelection == SCISSORS) ||
     (playerSelection == SCISSORS && computerSelection == ROCK)) {
-        return "You loose!";
+        return 0;
     }
     else {
-        return "You win!";
+        return 1;
+    }
+}
+
+function outcomeFromIntToStr(outcome) {
+    return OUTCOMES[outcome];
+}
+
+function countPoints(outcome) {
+    if (outcome == 0) {
+        return computerScore ++;
+    }
+    else if (outcome == 1) {
+        return playerScore ++;
+    }
+    else {
+        return numberOfDraws ++;
     }
 }
 
@@ -33,7 +54,12 @@ function game() {
         let userInput = lowercaseInput(prompt());
         let computerChoice = getComputerChoice();
         console.log("The computers choice is " + computerChoice);
-        console.log(playRound(userInput, computerChoice));        
+        let outcome = playRound(userInput, computerChoice);
+        countPoints(outcome);
+        console.log(outcomeFromIntToStr(outcome));
+        console.log("Computer: " + computerScore);
+        console.log("Player: " + playerScore);
+        console.log("Draws: " + numberOfDraws);
     }
 }
 
