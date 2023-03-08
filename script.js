@@ -81,6 +81,7 @@ function game() {
     while (win == false) {
         let userInput = lowercaseInput(prompt());
         if (checkIfValidInput(userInput) == false) {
+            // keep checking till the input is valid
             while (checkIfValidInput(userInput) == false) {
                 console.log("Incorrect value, re-enter a valid one.")
                 userInput = lowercaseInput(prompt());
