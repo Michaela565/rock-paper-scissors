@@ -70,10 +70,12 @@ function isWin(){
     if (playerScore == 5){
         win = true;
         console.log("You win the game!");
+        playerScore = 0;
     }
     else if (computerScore == 5){
         win == true;
         console.log("Computer wins!")
+        computerScore = 0;
     }
 }
 
