@@ -84,10 +84,10 @@ function getBtnClass(e) {
         return "scissors";
     }
     else if(e.target.getAttribute("class") == 'rock'){
-        console.log("rock");
+        return "rock";
     }
     else{
-        console.log("paper");
+        return "paper";
     }
 }
 
@@ -98,7 +98,7 @@ function getUserInput() {
 
 
 function game() {
-    while (win == false) {
+    while (!win) {
         let userInput = lowercaseInput(prompt());
         if (checkIfValidInput(userInput) == false) {
             // keep checking till the input is valid
@@ -122,4 +122,4 @@ function game() {
     
 }
 
-getUserInput();
+console.log(getUserInput());
