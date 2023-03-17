@@ -13,6 +13,7 @@ const textComputerScore = document.querySelector('.computer');
 const textPlayerScore = document.querySelector('.player');
 const textDrawsScore = document.querySelector('.draws');
 const textWin = document.querySelector('.win');
+const resetBtn = document.querySelector('.resetBtn');
 
 let win = false;
 
@@ -95,6 +96,7 @@ function playWithInput(e) {
 function addBtnListeners() {
     const buttons = document.querySelectorAll('.button');
     buttons.forEach(button => button.addEventListener('click', playWithInput));
+    resetBtn.addEventListener('click', resetGame);
 }
 
 
