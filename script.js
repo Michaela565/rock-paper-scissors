@@ -54,27 +54,25 @@ function countPoints(outcome) {
     }
 }
 
+function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+    numberOfDraws = 0;
+    textComputerScore.textContent = `Computer score: ${computerScore}`;
+    textPlayerScore.textContent = `Player score: ${playerScore}`;
+    textDrawsScore.textContent = `Number of Draws: ${numberOfDraws}`;
+    textWin.textContent = "";
+}
 
 function isWin(){
     if (playerScore == 5){
         win = true;
         textWin.textContent = "Player wins!";
-        playerScore = 0;
-        computerScore = 0;
-        numberOfDraws = 0;
-        textComputerScore.textContent = `Computer score: ${computerScore}`;
-        textPlayerScore.textContent = `Player score: ${playerScore}`;
-        textDrawsScore.textContent = `Number of Draws: ${numberOfDraws}`;
+        
     }
     else if (computerScore == 5){
         win == true;
         textWin.textContent = "Computer wins!";
-        computerScore = 0;
-        playerScore = 0;
-        numberOfDraws = 0;
-        textComputerScore.textContent = `Computer score: ${computerScore}`;
-        textPlayerScore.textContent = `Player score: ${playerScore}`;
-        textDrawsScore.textContent = `Number of Draws: ${numberOfDraws}`;
     }
 }
 
@@ -95,7 +93,7 @@ function playWithInput(e) {
 }
 
 function addBtnListeners() {
-    const buttons = document.querySelectorAll('button');
+    const buttons = document.querySelectorAll('.button');
     buttons.forEach(button => button.addEventListener('click', playWithInput));
 }
 

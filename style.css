@@ -14,7 +14,7 @@ body{
 }
 
 
-button {
+.button {
     font-family: 'Sono';
     background: url("buttonbg.png");
     background-size: cover;
@@ -24,7 +24,7 @@ button {
     border-style: none;
 }
 
-button:hover{
+.button:hover{
     width: 310px;
     height: 310px;
 }
@@ -49,4 +49,19 @@ button:active{
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+}
+
+.resetBtnContainer {
+    text-align: center;
+    margin: 16px;
+}
+
+.resetBtn {
+    font-family: 'Sono';
+    border-style: none;
+    padding: 16px;
+    background-color: lightpink;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
 }
