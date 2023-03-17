@@ -1,34 +1,24 @@
 
-const ROCK = "rock"
-const PAPER = "paper"
-const SCISSORS = "scissors"
+const ROCK = "rock";
+const PAPER = "paper";
+const SCISSORS = "scissors";
 
 const OPTIONS = [ROCK, PAPER, SCISSORS];
-const OUTCOMES = ["You loose!", "You win!", "A draw."]
 
 let computerScore = 0;
 let playerScore = 0;
 let numberOfDraws = 0;
+
+const textComputerScore = document.querySelector('.computer');
+const textPlayerScore = document.querySelector('.player');
+const textDrawsScore = document.querySelector('.draws');
+const textWin = document.querySelector('.win');
 
 let win = false;
 
 function getComputerChoice() {
     let randomChoice = Math.floor(Math.random() * 3);
     return OPTIONS[randomChoice];
-}
-
-
-function lowercaseInput(userInput) {
-    return userInput.toLowerCase()
-}
-
-function checkIfValidInput(userInput){
-    if(userInput == SCISSORS || userInput == ROCK || userInput == PAPER){
-        return true;
-    }
-    else{
-        return false;
-    }
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -44,82 +34,74 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function outcomeFromIntToStr(outcome) {
-    return OUTCOMES[outcome];
-}
 
 function countPoints(outcome) {
     if (outcome == 0) {
-        return computerScore ++;
+        computerScore ++;
+        textComputerScore.textContent =`Computer score: ${computerScore}`;
+        return;
+        
     }
     else if (outcome == 1) {
-        return playerScore ++;
+        playerScore ++;
+        textPlayerScore.textContent = `Player score: ${playerScore}`;
+        return;
     }
     else {
-        return numberOfDraws ++;
+        numberOfDraws ++;
+        textDrawsScore.textContent = `Number of Draws: ${numberOfDraws}`;
+        return;
     }
 }
 
-function printPoints() {
-    console.log("Computer: " + computerScore);
-    console.log("Player: " + playerScore);
-    console.log("Draws: " + numberOfDraws);
-}
 
 function isWin(){
     if (playerScore == 5){
         win = true;
-        console.log("You win the game!");
+        textWin.textContent = "Player wins!";
         playerScore = 0;
+        computerScore = 0;
+        numberOfDraws = 0;
+        textComputerScore.textContent = `Computer score: ${computerScore}`;
+        textPlayerScore.textContent = `Player score: ${playerScore}`;
+        textDrawsScore.textContent = `Number of Draws: ${numberOfDraws}`;
     }
     else if (computerScore == 5){
         win == true;
-        console.log("Computer wins!")
+        textWin.textContent = "Computer wins!";
         computerScore = 0;
+        playerScore = 0;
+        numberOfDraws = 0;
+        textComputerScore.textContent = `Computer score: ${computerScore}`;
+        textPlayerScore.textContent = `Player score: ${playerScore}`;
+        textDrawsScore.textContent = `Number of Draws: ${numberOfDraws}`;
     }
 }
 
-function getBtnClass(e) {
-    if(e.target.getAttribute("class") == 'scissors'){
-        return "scissors";
+function playWithInput(e) {
+    let outcome;
+    let computerChoice = getComputerChoice();
+    if(e.target.getAttribute("class") == SCISSORS){
+        outcome = playRound(SCISSORS, computerChoice);
     }
-    else if(e.target.getAttribute("class") == 'rock'){
-        return "rock";
+    else if(e.target.getAttribute("class") == ROCK){
+        outcome = playRound(ROCK, computerChoice);
     }
     else{
-        return "paper";
+        outcome = playRound(PAPER, computerChoice);
     }
+    countPoints(outcome);
+    isWin();
 }
 
-function getUserInput() {
+function addBtnListeners() {
     const buttons = document.querySelectorAll('button');
-    buttons.forEach(button => button.addEventListener('click', getBtnClass));
+    buttons.forEach(button => button.addEventListener('click', playWithInput));
 }
 
 
 function game() {
-    while (!win) {
-        let userInput = lowercaseInput(prompt());
-        if (checkIfValidInput(userInput) == false) {
-            // keep checking till the input is valid
-            while (checkIfValidInput(userInput) == false) {
-                console.log("Incorrect value, re-enter a valid one.")
-                userInput = lowercaseInput(prompt());
-            }
-        }
-        let computerChoice = getComputerChoice();
-
-        console.log("The computers choice is " + computerChoice);
-
-        let outcome = playRound(userInput, computerChoice);
-        countPoints(outcome);
-        console.log(outcomeFromIntToStr(outcome));
-
-        
-        printPoints();
-        isWin();
-    }
-    
+    addBtnListeners()
 }
 
-console.log(getUserInput());
+game();
