@@ -14,12 +14,8 @@ body{
 }
 
 
-
-.buttonText{
-    font-family: 'Sono';
-}
-
 button {
+    font-family: 'Sono';
     background: url("buttonbg.png");
     background-size: cover;
     width: 300px;

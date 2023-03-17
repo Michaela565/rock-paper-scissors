@@ -79,6 +79,24 @@ function isWin(){
     }
 }
 
+function getBtnClass(e) {
+    if(e.target.getAttribute("class") == 'scissors'){
+        return "scissors";
+    }
+    else if(e.target.getAttribute("class") == 'rock'){
+        console.log("rock");
+    }
+    else{
+        console.log("paper");
+    }
+}
+
+function getUserInput() {
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => button.addEventListener('click', getBtnClass));
+}
+
+
 function game() {
     while (win == false) {
         let userInput = lowercaseInput(prompt());
@@ -104,4 +122,4 @@ function game() {
     
 }
 
-game();
+getUserInput();
