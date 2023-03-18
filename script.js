@@ -35,7 +35,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-
 function countPoints(outcome) {
     if (outcome == 0) {
         computerScore ++;
@@ -48,7 +47,7 @@ function countPoints(outcome) {
         textPlayerScore.textContent = `Player score: ${playerScore}`;
         return;
     }
-    else {
+    else if (outcome == 2){
         numberOfDraws ++;
         textDrawsScore.textContent = `Number of Draws: ${numberOfDraws}`;
         return;
@@ -56,9 +55,7 @@ function countPoints(outcome) {
 }
 
 function resetGame() {
-    playerScore = 0;
-    computerScore = 0;
-    numberOfDraws = 0;
+    playerScore = computerScore = numberOfDraws = 0;
     textComputerScore.textContent = `Computer score: ${computerScore}`;
     textPlayerScore.textContent = `Player score: ${playerScore}`;
     textDrawsScore.textContent = `Number of Draws: ${numberOfDraws}`;
@@ -104,8 +101,4 @@ function addBtnListeners() {
 }
 
 
-function game() {
-    addBtnListeners()
-}
-
-game();
+addBtnListeners();
