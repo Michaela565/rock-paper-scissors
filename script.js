@@ -63,6 +63,7 @@ function resetGame() {
     textPlayerScore.textContent = `Player score: ${playerScore}`;
     textDrawsScore.textContent = `Number of Draws: ${numberOfDraws}`;
     textWin.textContent = "";
+    win = false;
 }
 
 function isWin(){
@@ -72,7 +73,7 @@ function isWin(){
         
     }
     else if (computerScore == 5){
-        win == true;
+        win = true;
         textWin.textContent = "Computer wins!";
     }
 }
@@ -80,7 +81,10 @@ function isWin(){
 function playWithInput(e) {
     let outcome;
     let computerChoice = getComputerChoice();
-    if(e.target.getAttribute("class") == SCISSORS){
+    if(win){
+        resetGame();
+    }
+    else if(e.target.getAttribute("class") == SCISSORS){
         outcome = playRound(SCISSORS, computerChoice);
     }
     else if(e.target.getAttribute("class") == ROCK){
