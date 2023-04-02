@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Sono:wght@200;300;400;500;600;700;800&display=swap');
+
+
+body{
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    font-family: 'Sono';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #ffe6e6;
+}
+
+
+.button {
+    font-family: 'Sono';
+    background: url("buttonbg.png");
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    font-size: 2rem;
+    border-style: none;
+}
+
+.button:hover{
+    width: 310px;
+    height: 310px;
+}
+
+button:active{
+    transform: translateY(4px);
+}
+
+.buttons {
+    margin: 12px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.scores {
+    margin: 8px;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.resetBtnContainer {
+    text-align: center;
+    margin: 16px;
+}
+
+.resetBtn {
+    font-family: 'Sono';
+    border-style: none;
+    padding: 16px;
+    background-color: lightpink;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+}
