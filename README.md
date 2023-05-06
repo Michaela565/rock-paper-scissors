@@ -1,5 +1,7 @@
 # rock paper scissors
  
- first javascript project from the odin project  
+ first javascript project from [The Odin Project](https://www.theodinproject.com/)
+ 
+ Simple page where you can play rock, paper, scissors against a computer
    
- simple rock-paper-scissors game that works in the console
+ 
