@@ -22,15 +22,16 @@ body{
     height: 300px;
     font-size: 2rem;
     border-style: none;
+    transition: all 0.2s;
 }
 
 .button:hover{
-    width: 310px;
-    height: 310px;
+    transform: scale(1.1);
 }
 
-button:active{
-    transform: translateY(4px);
+.button:active{
+    transform: translateY(10px);
+    filter: opacity(80%);
 }
 
 .buttons {
@@ -64,4 +65,14 @@ button:active{
     border-radius: 12px;
     font-size: 16px;
     font-weight: 500;
+    transition: all 0.2s;
+}
+
+.resetBtn:hover{
+    transform: translateY(5px);
+}
+
+.resetBtn:active{
+    transform: translateY(10px);
+    filter: opacity(90%);
 }
