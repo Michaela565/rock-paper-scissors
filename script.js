@@ -36,21 +36,21 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function countPoints(outcome) {
-    if (outcome == 0) {
-        computerScore ++;
-        textComputerScore.textContent =`Computer score: ${computerScore}`;
-        return;
-        
-    }
-    else if (outcome == 1) {
-        playerScore ++;
-        textPlayerScore.textContent = `Player score: ${playerScore}`;
-        return;
-    }
-    else if (outcome == 2){
-        numberOfDraws ++;
-        textDrawsScore.textContent = `Number of Draws: ${numberOfDraws}`;
-        return;
+    switch (outcome) {
+        case 0:
+            computerScore ++;
+            textComputerScore.textContent =`Computer score: ${computerScore}`;
+            break;
+        case 1:
+            playerScore ++;
+            textPlayerScore.textContent = `Player score: ${playerScore}`;
+            break;
+        case 2:
+            numberOfDraws ++;
+            textDrawsScore.textContent = `Number of Draws: ${numberOfDraws}`;
+            break;
+        default:
+            break;
     }
 }
 
@@ -64,14 +64,17 @@ function resetGame() {
 }
 
 function isWin(){
-    if (playerScore == 5){
-        win = true;
-        textWin.textContent = "Player wins!";
-        
-    }
-    else if (computerScore == 5){
-        win = true;
-        textWin.textContent = "Computer wins!";
+    switch (5) {
+        case playerScore:
+            win = true;
+            textWin.textContent = "Player wins!";
+            break;
+        case computerScore:
+            win = true;
+            textWin.textContent = "Computer wins!";
+            break;
+        default:
+            break;
     }
 }
 
